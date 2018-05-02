@@ -9,7 +9,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class Main {
 
 
-    public void telbotInit() {
+    public static void main(String[] args) {
         ApiContextInitializer.init();
         TelegramBotsApi botapi = new TelegramBotsApi();
         try {
