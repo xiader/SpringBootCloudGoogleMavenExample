@@ -70,11 +70,7 @@
             <artifactId>telegrambots-spring-boot-starter</artifactId>
             <version>3.6.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -97,6 +93,36 @@
                         </resource>
                     </webResources>
                 </configuration>-->
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-ext-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/extra-resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}</directory>
+                                    <filtering>true</filtering>
+                                    <excludes>
+                                        <exclude>**/.idea/**</exclude>
+                                        <exclude>**/src/**</exclude>
+                                        <exclude>**/target/**</exclude>
+                                        <exclude>**/log/**</exclude>
+                                        <exclude>*.*</exclude>
+                                    </excludes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
                 <plugin>
