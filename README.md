@@ -11,4 +11,5 @@ Requirements
 
 Run
 
-    mvn spring-boot:run -Dspring-boot.run.arguments="bot.token=token, bot.username=username"
+    mvn spring-boot:run 
+    mvn appengine:deploy
