@@ -44,7 +44,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotUsername() {
-		return "sashahookexample_bot";
+		return "sashahookexample";
 	}
 
 
