@@ -15,6 +15,8 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+
 @Component
 public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandler {
 
@@ -30,6 +32,22 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 //	@Value("${bot.webhook_user}")
 //	private String WEBHOOK_USER;
 
+	static {
+		ApiContextInitializer.init();
+	}
+
+
+	@PostConstruct
+	public void registerBot() {
+		TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
+		try {
+			telegramBotsApi.registerBot(this);
+
+		} catch (TelegramApiException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
 		if (update.hasMessage() && update.getMessage().hasText()) {
@@ -44,7 +62,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotUsername() {
-		return "sashahookexample";
+		return "sashahookexample_bot";
 	}
 
 
@@ -60,7 +78,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotPath() {
-		return "sashahookexample";
+		return "https://webhooktryouts.appspot.com/mybotwebhook";
 	}
 }
 
