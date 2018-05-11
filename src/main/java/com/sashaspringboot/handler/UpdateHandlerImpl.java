@@ -21,14 +21,14 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 	private Logger LOG = LoggerFactory.getLogger(UpdateHandlerImpl.class);
 
 
-	@Value("${bot.token}")
-	private String TOKEN;
-
-	@Value("${bot.username}")
-	private String USERNAME;
-
-	@Value("${bot.webhook_user}")
-	private String WEBHOOK_USER;
+//	@Value("${bot.token}")
+//	private String TOKEN;
+//
+//	@Value("${bot.username}")
+//	private String USERNAME;
+//
+//	@Value("${bot.webhook_user}")
+//	private String WEBHOOK_USER;
 
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
@@ -44,7 +44,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotUsername() {
-		return USERNAME;
+		return "sashahookexample_bot";
 	}
 
 
@@ -55,12 +55,12 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotToken() {
-		return TOKEN;
+		return "593968163:AAFtjb0uYLn44OozyBiBhtGd-rE9g2yBo9Q";
 	}
 
 	@Override
 	public String getBotPath() {
-		return WEBHOOK_USER;
+		return "https://webhooktryouts.appspot.com/mybotwebhook";
 	}
 }
 
