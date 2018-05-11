@@ -60,7 +60,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotPath() {
-		return "https://webhooktryouts.appspot.com/mybotwebhook";
+		return "sashahookexample";
 	}
 }
 

@@ -1,3 +1,4 @@
+/*
 package com.sashaspringboot.beanconf;
 
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
@@ -31,4 +32,4 @@ public class PropertiesBean {
     }
 
 
-}
+}*/
