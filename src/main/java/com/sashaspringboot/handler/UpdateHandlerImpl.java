@@ -50,6 +50,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
+        LOG.info("$$$$$$$$$$$$$$$$ onWebhookUpdateReceived был выполнен {}", update);
 		if (update.hasMessage() && update.getMessage().hasText()) {
 			SendMessage sendMessage = new SendMessage();
 			sendMessage.setChatId(update.getMessage().getChatId().toString());
@@ -57,6 +58,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 			System.out.println(sendMessage.toString());
 			try {
 				execute(sendMessage);
+                LOG.info("======================сообщение было послано telegram================ {}", sendMessage);
 			} catch (TelegramApiException e) {
 				e.printStackTrace();
 			}
@@ -83,6 +85,7 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotPath() {
+        LOG.info("-------------GetBotPathExecuted--------------");
 		return "https://webhooktryouts.appspot.com/mybotwebhook";
 	}
 }

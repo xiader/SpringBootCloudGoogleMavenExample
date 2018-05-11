@@ -1,6 +1,8 @@
 package com.sashaspringboot;
 
 import com.sashaspringboot.handler.UpdateHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,9 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.telegram.telegrambots.api.objects.Update;
 
+
 @Controller
 public class HelloWorldController {
-
+    private Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
     private final UpdateHandler handler;
 
     @Autowired
@@ -31,6 +34,7 @@ public class HelloWorldController {
     @CrossOrigin
     @RequestMapping("/mybotwebhook")
     public ResponseEntity<?> webhook(@RequestBody Update update) {
+        LOG.info("========================= body from telegram recived ================== {}" , update);
         handler.handleUpdate(update);
         return new ResponseEntity(HttpStatus.OK);
     }
