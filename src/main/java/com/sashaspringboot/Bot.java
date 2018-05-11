@@ -82,6 +82,14 @@ public class Bot extends TelegramLongPollingBot {
             SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
                     .setChatId(update.getMessage().getChatId())
                     .setText(update.getMessage().getText());
+            ObjectMapper mapper2 = new ObjectMapper();
+
+            try {
+                String s = mapper2.writeValueAsString(message);
+                System.out.println(s);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
             try {
                 execute(message); // Call method to send the message
             } catch (TelegramApiException e) {

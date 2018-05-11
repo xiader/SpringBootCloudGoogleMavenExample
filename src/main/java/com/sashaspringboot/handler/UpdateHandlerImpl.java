@@ -55,6 +55,11 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 			sendMessage.setChatId(update.getMessage().getChatId().toString());
 			sendMessage.setText("Well, all information looks like noise until you break the code.");
 			System.out.println(sendMessage.toString());
+			try {
+				execute(sendMessage);
+			} catch (TelegramApiException e) {
+				e.printStackTrace();
+			}
 			return sendMessage;
 		}
 		return null;
@@ -67,8 +72,8 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 
 	@Override
-	public void handleUpdate(Update update) {
-    onWebhookUpdateReceived(update);
+	public BotApiMethod handleUpdate(Update update) {
+   return onWebhookUpdateReceived(update);
 	}
 
 	@Override
