@@ -34,7 +34,7 @@ public class HelloWorldController {
     @CrossOrigin
     @RequestMapping("/mybotwebhook")
     public ResponseEntity<?> webhook(@RequestBody Update update) {
-        LOG.info("========================= body from telegram recived ================== {}" , update);
+        LOG.debug("========================= body from telegram recived ================== {}" , update);
         handler.handleUpdate(update);
         return new ResponseEntity(HttpStatus.OK);
     }
