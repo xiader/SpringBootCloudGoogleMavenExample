@@ -12,7 +12,7 @@
             <pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${USER_HOME}/FFUUUUUU%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${USER_HOME}/shvetsov_sasha/FFUUUUUU%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>90</maxHistory>
             <totalSizeCap>10GB</totalSizeCap>
         </rollingPolicy>
