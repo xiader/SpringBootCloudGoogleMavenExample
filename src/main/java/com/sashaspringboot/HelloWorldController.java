@@ -32,7 +32,7 @@ public class HelloWorldController {
         return "hello";
     }
     @CrossOrigin
-    @RequestMapping("/mybotwebhook")
+    @RequestMapping(value ="/mybotwebhook", method = RequestMethod.POST)
     public ResponseEntity<?> webhook(@RequestBody Update update) {
     //    LOG.debug("========================= body from telegram recived ================== {}" , update);
         System.out.println("body from telegram recived");
