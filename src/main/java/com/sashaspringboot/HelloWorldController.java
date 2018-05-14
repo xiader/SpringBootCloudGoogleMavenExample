@@ -14,7 +14,7 @@ import org.telegram.telegrambots.api.objects.Update;
 
 @Controller
 public class HelloWorldController {
-    private Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
+  //  private Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
     private final UpdateHandler handler;
 
     @Autowired
@@ -34,7 +34,8 @@ public class HelloWorldController {
     @CrossOrigin
     @RequestMapping("/mybotwebhook")
     public ResponseEntity<?> webhook(@RequestBody Update update) {
-        LOG.debug("========================= body from telegram recived ================== {}" , update);
+    //    LOG.debug("========================= body from telegram recived ================== {}" , update);
+        System.out.println("body from telegram recived");
         handler.handleUpdate(update);
         return new ResponseEntity(HttpStatus.OK);
     }

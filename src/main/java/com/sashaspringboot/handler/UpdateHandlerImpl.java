@@ -20,7 +20,7 @@ import javax.annotation.PostConstruct;
 @Component
 public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandler {
 
-	private Logger LOG = LoggerFactory.getLogger(UpdateHandlerImpl.class);
+	//private Logger LOG = LoggerFactory.getLogger(UpdateHandlerImpl.class);
 
 
 //	@Value("${bot.token}")
@@ -50,15 +50,17 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public BotApiMethod onWebhookUpdateReceived(Update update) {
-        LOG.debug("$$$$$$$$$$$$$$$$ onWebhookUpdateReceived был выполнен {}", update);
-		if (update.hasMessage() && update.getMessage().hasText()) {
+      //  LOG.debug("$$$$$$$$$$$$$$$$ onWebhookUpdateReceived был выполнен {}", update);
+        System.out.println(update);
+        if (update.hasMessage() && update.getMessage().hasText()) {
 			SendMessage sendMessage = new SendMessage();
 			sendMessage.setChatId(update.getMessage().getChatId().toString());
 			sendMessage.setText("Well, all information looks like noise until you break the code.");
 			System.out.println(sendMessage.toString());
 			try {
 				execute(sendMessage);
-                LOG.debug("======================сообщение было послано telegram================ {}", sendMessage);
+               // LOG.debug("======================сообщение было послано telegram================ {}", sendMessage);
+                System.out.println("сообщение было послано teleg" +sendMessage);
 			} catch (TelegramApiException e) {
 				e.printStackTrace();
 			}
@@ -85,7 +87,8 @@ public class UpdateHandlerImpl extends TelegramWebhookBot implements UpdateHandl
 
 	@Override
 	public String getBotPath() {
-        LOG.debug("-------------GetBotPathExecuted--------------");
+      //  LOG.debug("-------------GetBotPathExecuted--------------");
+        System.out.println("---------GetBotPathExecuted----");
 		return "sashahookexample";
 	}
 }
